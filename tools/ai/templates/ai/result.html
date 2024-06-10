@@ -1,0 +1,7 @@
+<h1>Result</h1>
+{% if image_upload.processed_image %}
+    <p>Original Image:</p>
+    <img src="{{ image_upload.image.url }}" alt="Original Image">
+    <p>Processed Image:</p>
+    <img src="{{ image_upload.processed_image.url }}" alt="Processed Image">
+{% endif %}
