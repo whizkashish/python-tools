@@ -44,7 +44,8 @@ def text_to_speech_view(request):
             # Save to WAV format first
             engine.save_to_file(tts_entry.text, temp_wav_file)
             engine.runAndWait()
-
+             # Set ffmpeg path if not in PATH
+            AudioSegment.converter = "F:/ffmpeg/bin/ffmpeg.exe"  # Update to your ffmpeg path
             # Convert WAV to MP3
             sound = AudioSegment.from_wav(temp_wav_file)
             sound.export(final_mp3_file, format="mp3")

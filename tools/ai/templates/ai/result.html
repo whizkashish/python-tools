@@ -1,7 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+{% block css_files %}
+{% endblock %}
+{% block content %}
+
 <h1>Result</h1>
 {% if image_upload.processed_image %}
-    <p>Original Image:</p>
-    <img src="{{ image_upload.image.url }}" alt="Original Image">
-    <p>Processed Image:</p>
-    <img src="{{ image_upload.processed_image.url }}" alt="Processed Image">
+<div class="row">
+    <div class="col-6 col-sm-4"><h3>Original Image:</h3>
+        <img src="{{ image_upload.image.url }}" alt="Original Image">
+    </div>
+    <div class="col-6 col-sm-4"><h3>Processed Image:<a class="btn btn-primary" href="{{ image_upload.processed_image.url }}" download>Download</a></h3>
+        <img src="{{ image_upload.processed_image.url }}" alt="Processed Image">
+    </div>
+</div>  
 {% endif %}
+{% endblock %}
+
+

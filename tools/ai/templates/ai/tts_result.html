@@ -1,10 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+{% endblock %}
+{% block css_files %}
+{% endblock %}
+{% block content %}
 <h1>Text to Speech Result</h1>
 {% if tts_entry.audio_file %}
-    <p>Text:</p>
-    <p>{{ tts_entry.text }}</p>
-    <p>Audio:</p>
-    <audio controls>
-        <source src="{{ tts_entry.audio_file.url }}" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    
+    
+<div class="row">
+    <div class="col-6 col-sm-4"><h3>Text:</h3>
+        <p>{{ tts_entry.text }}</p>
+    </div>
+    <div class="col-6 col-sm-4"><h3>Processed Image:<h3>Audio:<a class="btn btn-primary" href="{{ tts_entry.audio_file.url }}" download>Download</a></h3>
+        <audio controls>
+            <source src="{{ tts_entry.audio_file.url }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>  
 {% endif %}
+
+{% endblock %}
